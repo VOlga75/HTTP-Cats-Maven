@@ -29,11 +29,12 @@ public class Main {
         HttpGet request = new HttpGet(REMOTE_SERVICE_URI);
         //request.setHeader(HttpHeaders.ACCEPT, ContentType.APPLICATION_JSON.getMimeType());
 // отправка запроса
-       try {
-           CloseableHttpResponse response = httpClient.execute(request);
-       } catch (ClientProtocolException e){
-           System.out.println(e);
-       }
+        CloseableHttpResponse response = null;
+        try {
+            response = httpClient.execute(request);
+        } catch (ClientProtocolException e) {
+            System.out.println(e);
+        }
 // вывод полученных заголовков, оставила на память
 //        Arrays.stream(response.getAllHeaders()).forEach(System.out::println);
 //// чтение и печать тела ответа, оставила на память
